@@ -1,24 +1,26 @@
-import logo from './logo.svg';
-import './App.css';
+import './index.css';
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import Cart from './Cart';
+import Home from './Home';
+import Header from './Header';
+import Footer from './Footer';
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <BrowserRouter>
+      {/* Apply h-screen to the main wrapper */}
+      <div className="w-[1200px] max-w-full m-auto h-screen p-5 flex flex-col">
+        <Header />
+        {/* Routes are wrapped in a container with full height */}
+        <main className="flex-1">
+          <Routes>
+            <Route path="/" element={<Home />} />
+            <Route path="/cart" element={<Cart />} />
+          </Routes>
+        <Footer />
+        </main>
+      </div>
+    </BrowserRouter>
   );
 }
 
