@@ -4,6 +4,7 @@ import Cart from './Cart';
 import Home from './Home';
 import Header from './Header';
 import Footer from './Footer';
+import Detail from './Detail';
 
 function App() {
   return (
@@ -15,6 +16,7 @@ function App() {
         <main className="flex-1">
           <Routes>
             <Route path="/" element={<Home />} />
+            <Route path='/:slug' element={<Detail />} />
             <Route path="/cart" element={<Cart />} />
           </Routes>
         <Footer />

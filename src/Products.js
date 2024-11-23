@@ -1,7 +1,6 @@
 import image1 from './pexels-frans-van-heerden-201846-847371.jpg';
 import image2 from './pexels-goumbik-293405.jpg';
 import image3 from './pexels-joshsorenson-1485166.jpg';
-
 import image4 from './pexels-mnzoutfits-1598508.jpg';
 import image5 from './pexels-momentsbypeterpatel-637076.jpg';
 import image6 from './pexels-pixabay-267326.jpg';
@@ -11,6 +10,7 @@ import image8 from './pexels-webdonut-19090.jpg';
 export const shoesData = [
   {
     id: 1,
+    slug: "air-max-270-react",  // Manually added slug
     name: "Air Max 270 React",
     description: "A sleek and stylish sneaker with a responsive cushioning system, perfect for all-day wear.",
     image: image1,
@@ -18,6 +18,7 @@ export const shoesData = [
   },
   {
     id: 2,
+    slug: "nike-free-rn-5-0",  // Manually added slug
     name: "Nike Free RN 5.0",
     description: "Lightweight and flexible running shoes designed for ultimate comfort and support.",
     image: image2,
@@ -25,6 +26,7 @@ export const shoesData = [
   },
   {
     id: 3,
+    slug: "adidas-ultraboost-22",  // Manually added slug
     name: "Adidas UltraBoost 22",
     description: "Experience unmatched comfort with the iconic UltraBoost cushioning for long-lasting energy return.",
     image: image3,
@@ -32,6 +34,7 @@ export const shoesData = [
   },
   {
     id: 4,
+    slug: "reebok-nano-x2",  // Manually added slug
     name: "Reebok Nano X2",
     description: "A versatile cross-training shoe, built for comfort, stability, and durability during intense workouts.",
     image: image4,
@@ -39,6 +42,7 @@ export const shoesData = [
   },
   {
     id: 5,
+    slug: "converse-chuck-taylor-all-star",  // Manually added slug
     name: "Converse Chuck Taylor All Star",
     description: "The timeless classic, offering a casual and laid-back style with iconic canvas material.",
     image: image5,
@@ -46,6 +50,7 @@ export const shoesData = [
   },
   {
     id: 6,
+    slug: "puma-suede-classic",  // Manually added slug
     name: "Puma Suede Classic",
     description: "A retro-inspired sneaker that combines premium suede with a sleek, timeless design.",
     image: image6,
@@ -53,6 +58,7 @@ export const shoesData = [
   },
   {
     id: 7,
+    slug: "new-balance-990v5",  // Manually added slug
     name: "New Balance 990v5",
     description: "A premium performance running shoe with superior cushioning and support for everyday wear.",
     image: image7,
@@ -60,6 +66,7 @@ export const shoesData = [
   },
   {
     id: 8,
+    slug: "vans-old-skool",  // Manually added slug
     name: "Vans Old Skool",
     description: "Iconic skate shoes featuring a durable canvas and suede construction, with the classic side stripe.",
     image: image8,
