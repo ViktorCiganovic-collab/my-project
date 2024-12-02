@@ -9,18 +9,17 @@ import Detail from './Detail';
 function App() {
   return (
     <BrowserRouter>
-      {/* Apply h-screen to the main wrapper */}
-      <div className="w-[1200px] max-w-full m-auto h-screen p-5 flex flex-col">
+      {/* Add min-h-screen to ensure full viewport height */}
+      <div className="w-[1200px] max-w-full m-auto p-5 flex flex-col min-h-screen">
         <Header />
-        {/* Routes are wrapped in a container with full height */}
         <main className="flex-1">
           <Routes>
             <Route path="/" element={<Home />} />
             <Route path='/:slug' element={<Detail />} />
             <Route path="/cart" element={<Cart />} />
           </Routes>
-        <Footer />
         </main>
+        <Footer />
       </div>
     </BrowserRouter>
   );

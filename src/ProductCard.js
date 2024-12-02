@@ -13,7 +13,7 @@ const ProductCard = ({ product }) => {
       {/* Product Image */}
       <Link to={`/${product.slug}`}>
         <img
-        className="w-full h-56 object-cover drop-shadow-[0_30px_30px_#0007] hover:scale-110 productImg"
+        className="w-5/5 m-auto h-56 object-cover drop-shadow-[0_30px_30px_#0007] hover:scale-110 productImg"
         src={product.image}
         alt={product.name}></img>  
       </Link>      
