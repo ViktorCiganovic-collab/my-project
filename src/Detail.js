@@ -1,10 +1,65 @@
-import React from 'react';
+import { useState } from 'react';
 import { useParams } from 'react-router-dom';
 import { shoesData } from './Products';  // Import the shoesData
+import { useEffect } from 'react';
+import Increment from "./Functions";
+import Decrement from './Decrement';
 
 const Detail = () => {
   const { slug } = useParams();  // Get the slug from the URL
   const product = shoesData.find((item) => item.slug === slug);  // Find the product by slug
+  const [cartAmount, setCartAmount] = useState(0);
+  const [currentProductQuantity, setCurrentProductQuantity] = useState(0);
+
+  const currentProd = () => {
+
+    var basket = JSON.parse(localStorage.getItem("data")) || [];
+    
+    const foundProduct = basket.find((item) => item.id === product.id);
+
+      if (foundProduct) {
+
+        setCurrentProductQuantity(foundProduct.quantity || 0);
+      } 
+      else {
+
+        setCurrentProductQuantity(0);
+
+      }  
+
+     
+
+  }  
+
+  const updateCartAmount = () => {
+
+  var basket = JSON.parse(localStorage.getItem("data")) || [];
+  const totalQuantity =
+  basket.map(item => item.quantity).filter(quantity => !isNaN(quantity)).reduce((accumulated, currentValue) => {
+
+    return accumulated + currentValue;}, 0);
+
+    setCartAmount(totalQuantity);
+  }
+
+  useEffect(() => {
+    currentProd();
+    updateCartAmount(); // Update the cart amount initially when the component loads
+  }, []);  // Empty dependency array ensures it only runs once on mount
+
+  //-------------------------------------------------------------
+
+  const handleAddToCart = () => {
+    Increment(product.id); // Add product to cart
+    currentProd();
+    updateCartAmount();
+  };
+
+  const handleDecrement = () => {
+    Decrement(product.id);
+    currentProd();
+    updateCartAmount();
+  }
 
   // If product is not found, show a 404-like message
   if (!product) {
@@ -31,10 +86,18 @@ const Detail = () => {
           {/* Product Price */}
           <p className="text-xl font-bold mt-4">{product.price}</p>
           
-          {/* Add to Cart Button (if you want to include it on the detail page) */}
-          <button className="bg-zinc-500 text-white py-2 px-4 mt-6 rounded-md hover:bg-zinc-600">
-            Add to Cart
-          </button>
+          {/* Add to Cart Bu
+          tton (if you want to include it on the detail page) */}
+
+          <div className="flex flex-row gap-5 my-3 buttonsDetailpage">
+
+          <span onClick={handleDecrement} className='addBtns'>-</span>
+          <strong>{currentProductQuantity}</strong>
+          <span onClick={handleAddToCart} className="addBtns">+</span>
+
+          </div>
+
+
         </div>
       </div>
     </div>

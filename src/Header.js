@@ -37,7 +37,7 @@ const Header = () => {
 
   return (
     <header className="flex justify-between items-center mb-5 bg-slate-900 p-5 rounded-lg">
-      <Link to="/" className="text-xl font-semibold text-white">Home</Link>
+      <Link to="/" className="text-xl text-white font-extrabold">Home</Link>
       <div className="w-10 h-10 bg-gray-100 rounded-full flex justify-center items-center relative hover:scale-110 shopping_cart">
         <Link to="/cart">
           <img src={CartIcon} alt="Cart" className="w-6" />
@@ -51,3 +51,4 @@ const Header = () => {
 };
 
 export default Header;
+

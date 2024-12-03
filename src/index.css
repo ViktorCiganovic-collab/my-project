@@ -26,6 +26,43 @@ code {
   transition: 0.5s;
 }
 
+.buttons {
+border: 1px solid black;
+width: 50%;
+font-size: 20px;
+}
+
+.addBtns {
+cursor: pointer;
+
+}
+
+.cartImgs {
+transition: 0.5s;
+}
+
+.cartImgs:hover {
+transform: scale(1.05);
+}
+
+form input {
+height: 50px !important;
+text-align: center;
+background: transparent;
+border: 1px solid darkblue;
+border-radius: 8px;
+outline: none;
+}
+
+.buttonsDetailpage {
+border: 1px solid black;
+width: 30%;
+display: flex;
+justify-content: center;
+padding: 8px;
+font-size: 20px;
+}
+
 footer p {
   transition: 0.9s ease-in;
 }
