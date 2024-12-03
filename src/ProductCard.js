@@ -25,7 +25,7 @@ const ProductCard = ({ product }) => {
         <p className="text-gray-600 text-sm mt-2">{product.description}</p>
 
         {/* Product Price */}
-        <p className="text-gray-900 font-bold text-lg mt-4">{product.price}</p>        
+        <p className="text-gray-900 font-bold text-lg mt-4">${product.price}</p>        
         {/* Add to Cart Button */}
         <div className="mt-4 flex justify-center gap-5">
           <button

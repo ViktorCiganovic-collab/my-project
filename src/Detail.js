@@ -84,7 +84,7 @@ const Detail = () => {
           <p className="text-lg mt-4">{product.description}</p>
           
           {/* Product Price */}
-          <p className="text-xl font-bold mt-4">{product.price}</p>
+          <p className="text-xl font-bold mt-4">${product.price}</p>
           
           {/* Add to Cart Bu
           tton (if you want to include it on the detail page) */}
