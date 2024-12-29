@@ -3,6 +3,7 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import Cart from './Cart';
 import Home from './Home';
 import Header from './Header';
+import ThankYou from './ThankYou';
 import Footer from './Footer';
 import Detail from './Detail';
 
@@ -17,6 +18,7 @@ function App() {
             <Route path="/" element={<Home />} />
             <Route path='/:slug' element={<Detail />} />
             <Route path="/cart" element={<Cart />} />
+            <Route path="/thank-you" element={<ThankYou />} />
           </Routes>
         </main>
         <Footer />
