@@ -138,63 +138,70 @@ const Cart = () => {
   
   return (
     <div className="cart-container">
-      <h1 className='text-slate-900 font-extrabold text-4xl text-left mb-3'>Your Shopping Cart</h1>
+      <h1 className='text-slate-900 font-extrabold text-4xl text-left mb-3 w-full'>Your Shopping Cart</h1>
       {basket.length === 0 ? (
         <p>Your cart is empty</p>
       ) : (
-        <div>
-          <div className="cart-items grid lg:grid-cols-4 md:grid-cols-3 sm:grid-cols-2 gap-5">
-            {basket.map(item => {
-              const product = products.find(p => p.id === item.id);
-              return (
-                <div key={item.id} className="cart-item">
-                  <img src={product.image} alt={product.name} />
-                  <h2>{product.name}</h2>
-                  <p>{product.description}</p>
-                  <p>Price: <span className='font-bold'>${product.price.toFixed(2)}</span></p>
-                  <div className="quantity-control flex flex-row gap-3 my-3">
-                    <button onClick={() => decrement(item.id)}>-</button>
-                    <span>{item.quantity}</span>
-                    <button onClick={() => increment(item.id)}>+</button>
+        <div className="flex flex-wrap gap-5">
+          {/* Cart Items */}
+          <div className="cart-items flex-1">
+            <div className="grid lg:grid-cols-2 md:grid-cols-2 sm:grid-cols-2 gap-5 w-full">
+              {basket.map(item => {
+                const product = products.find(p => p.id === item.id);
+                return (
+                  <div key={item.id} className="cart-item">
+                    <img src={product.image} alt={product.name} />
+                    <h2>{product.name}</h2>
+                    <p>{product.description}</p>
+                    <p>Price: <span className='font-bold'>${product.price.toFixed(2)}</span></p>
+                    <div className="quantity-control flex flex-row gap-3 my-3">
+                      <button onClick={() => decrement(item.id)}>-</button>
+                      <span>{item.quantity}</span>
+                      <button onClick={() => increment(item.id)}>+</button>
+                    </div>
+                    <button className='px-4 py-2 p-5 bg-red-500 text-white rounded-lg hover:bg-red-600 focus:outline-none focus:ring-2 focus:ring-red-400 focus:ring-opacity-75 transition' onClick={() => removeItem(item.id)}>Remove</button>
                   </div>
-                  <button className='px-4 py-2 p-5 bg-red-500 text-white rounded-lg hover:bg-red-600 focus:outline-none focus:ring-2 focus:ring-red-400 focus:ring-opacity-75 transition' onClick={() => removeItem(item.id)}>Remove</button>
-                </div>
-              );
-            })}
-          </div>
-          <div className="cart-summary my-3">
-            <p>Total Items: {cartAmount}</p>
-            <p>Total Amount: <span className='font-bold'>${totalAmount().toFixed(2)}</span></p>
-          </div>
-
-          <form onSubmit={handleSubmit} className="checkout-form py-5">
-            <div className="flex flex-row flex-wrap gap-5 my-3">
-              <input
-                type="text"
-                name="name_checkout"
-                placeholder="Name"
-                value={formData.name_checkout}
-                onChange={(e) => setFormData({ ...formData, name_checkout: e.target.value })}
-                className=""
-                required
-              />
-              <input
-                type="email"
-                name="email_checkout"
-                placeholder="Email"
-                value={formData.email_checkout}
-                onChange={(e) => setFormData({ ...formData, email_checkout: e.target.value })}
-                className=""
-                required
-              />
+                );
+              })}
             </div>
-            <button className="p-5 bg-green-500 text-white rounded-lg hover:bg-green-600 focus:outline-none focus:ring-2 focus:ring-green-400 focus:ring-opacity-75 transition" type="submit"><span className='font-bold hover:shadow-xl hover:border-solid'>Submit Order</span></button>
-          </form>
-          <button className='p-5 bg-red-500 text-white rounded-lg hover:bg-red-600 focus:outline-none focus:ring-2 focus:ring-red-400 focus:ring-opacity-75 transition"' onClick={clearCart}>Clear Cart</button>
+          </div>
+  
+          {/* Cart Summary & Checkout */}
+          <div className="cart-summary flex-1">
+            <div className="my-3">
+              <p>Total Items: {cartAmount}</p>
+              <p>Total Amount: <span className='font-bold'>${totalAmount().toFixed(2)}</span></p>
+            </div>
+  
+            <form onSubmit={handleSubmit} className="checkout-form py-5">
+              <div className="flex flex-row flex-wrap gap-5 my-3">
+                <input
+                  type="text"
+                  name="name_checkout"
+                  placeholder="Name"
+                  value={formData.name_checkout}
+                  onChange={(e) => setFormData({ ...formData, name_checkout: e.target.value })}
+                  required
+                />
+                <input
+                  type="email"
+                  name="email_checkout"
+                  placeholder="Email"
+                  value={formData.email_checkout}
+                  onChange={(e) => setFormData({ ...formData, email_checkout: e.target.value })}
+                  required
+                />
+              </div>
+              <button className="p-5 bg-green-500 text-white rounded-lg hover:bg-green-600 focus:outline-none focus:ring-2 focus:ring-green-400 focus:ring-opacity-75 transition" type="submit"><span className='font-bold hover:shadow-xl hover:border-solid'>Submit Order</span></button>
+            </form>
+            
+            <button className='p-5 bg-red-500 text-white rounded-lg hover:bg-red-600 focus:outline-none focus:ring-2 focus:ring-red-400 focus:ring-opacity-75 transition' onClick={clearCart}>Clear Cart</button>
+          </div>
         </div>
       )}
     </div>
   );
+  
 };
 
 export default Cart;
