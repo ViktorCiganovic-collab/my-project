@@ -86,9 +86,7 @@ const Detail = () => {
           {/* Product Price */}
           <p className="text-xl font-bold mt-4">${product.price}</p>
           
-          {/* Add to Cart Bu
-          tton (if you want to include it on the detail page) */}
-
+         
           <div className="flex flex-row gap-5 my-3 buttonsDetailpage">
 
           <span onClick={handleDecrement} className='addBtns'>-</span>
@@ -97,8 +95,17 @@ const Detail = () => {
 
           </div>
 
+          <div className="flex gap-5 btn-group my-5" role="group" aria-label="Size selection">
+            <button className='btns'>XS</button>
+            <button className='btns'>S</button>
+            <button className='btns'>M</button>
+            <button className='btns'>L</button>
+          </div>
+
+
 
         </div>
+
       </div>
     </div>
   );

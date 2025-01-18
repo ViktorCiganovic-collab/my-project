@@ -9,7 +9,7 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  background-color: rgb(223, 231, 245); /* Background color */
+  background-color: rgb(223, 231, 245); 
 }
 
 code {
@@ -73,6 +73,23 @@ footer p:hover {
 }
 
 footer {
-  /* Removed position absolute */
-  margin-top: auto; /* Push footer to the bottom when using flex */
+
+  margin-top: auto; 
+}
+
+
+.btns {
+  padding: 0.75rem 1.5rem;
+  font-size: 1rem;
+  border: 1px solid #000;
+  background-color: transparent;
+  color: #000;
+  cursor: pointer;
+  transition: all 0.3s ease; 
+  font-weight: 500;
+}
+
+.btns:hover {
+  background-color: #007bff;
+  color: white;
 }

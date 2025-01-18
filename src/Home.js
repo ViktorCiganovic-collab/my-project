@@ -13,7 +13,7 @@ const Home = () => {
       setProducts(shoesData);
     } else if (category === "Casual") {
       var casualCategory = shoesData.filter((shoes) => shoes.category === "Casual");
-      setProducts(casualCategory); // Assuming you want to update the products state here.
+      setProducts(casualCategory); 
     } else if (category === "Running") {
       var runningCategory = shoesData.filter((shoes) => shoes.category === "Running")
       setProducts(runningCategory);

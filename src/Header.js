@@ -5,35 +5,35 @@ import CartIcon from './iconCart.png';
 const Header = () => {
   const [cartAmount, setCartAmount] = useState(0);
 
-  // Function to update cart amount from localStorage
+  
   const updateCartAmount = () => {
     const basket = JSON.parse(localStorage.getItem("data")) || [];
     
-    // Calculate the total quantity of items in the basket
+    
     const totalQuantity = basket
-      .map(item => item.quantity)  // Get the quantity of each item
-      .filter(quantity => !isNaN(quantity))  // Filter out invalid quantities
-      .reduce((acc, curr) => acc + curr, 0);  // Sum all quantities
+      .map(item => item.quantity)  
+      .filter(quantity => !isNaN(quantity))  
+      .reduce((acc, curr) => acc + curr, 0);  
 
     setCartAmount(totalQuantity);
   };
 
   useEffect(() => {
-    updateCartAmount(); // Update cart amount when the component mounts
+    updateCartAmount(); 
 
-    // Listen for the custom 'cart-updated' event
+   
     const handleCartUpdate = () => {
-      updateCartAmount(); // Update cart amount when the cart is updated
+      updateCartAmount(); 
     };
 
-    // Attach event listener for custom event
+    
     window.addEventListener('cart-updated', handleCartUpdate);
 
-    // Clean up the event listener when the component unmounts
+  
     return () => {
       window.removeEventListener('cart-updated', handleCartUpdate);
     };
-  }, []); // This effect runs only once on mount and unmount
+  }, []); 
 
   return (
     <header className="flex justify-between items-center mb-5 bg-slate-900 p-5 rounded-lg">
