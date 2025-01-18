@@ -33,7 +33,7 @@ const Home = () => {
   return (
     <div className='w-full home me-auto ms-auto mx-auto'>
 
-    <div className="grid xl:grid-cols-5 md:grid-cols-3 sm:grid-cols-2 xs:grid-cols-2 gap-5 my-5">
+    <div className="grid grid-cols-2 xl:grid-cols-5 md:grid-cols-3 sm:grid-cols-2 xs:grid-cols-2 gap-5 my-5">
       <button onClick={filterCategories} value='all' className="px-4 py-2 bg-blue-500 text-white rounded-lg hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-400 focus:ring-opacity-75 transition">All Products</button>
       <button onClick={filterCategories} value='Casual' className="px-4 py-2 bg-blue-500 text-white rounded-lg hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-400 focus:ring-opacity-75 transition">Casual</button>
       <button onClick={filterCategories} value='Running' className="px-4 py-2 bg-green-500 text-white rounded-lg hover:bg-green-600 focus:outline-none focus:ring-2 focus:ring-green-400 focus:ring-opacity-75 transition">Running</button>
